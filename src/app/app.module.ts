@@ -7,6 +7,8 @@ import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
 import { LandingComponent } from './components/landing/landing.component';
+import {ParticlesModule} from 'ngx-particle';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { LandingComponent } from './components/landing/landing.component';
     BrowserModule,
     AppRoutingModule,
     ClarityModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ParticlesModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
