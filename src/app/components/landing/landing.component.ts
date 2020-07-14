@@ -47,12 +47,6 @@ export class LandingComponent implements OnInit {
           }
         },
       },
-      interactivity: {
-        on_hover: {
-          enable: true,
-          mode: 'repulse'
-        }
-      }
     };
 
   }
