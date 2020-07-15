@@ -10,6 +10,8 @@ import { LandingComponent } from './components/landing/landing.component';
 import {ParticlesModule} from 'ngx-particle';
 import { FooterComponent } from './components/footer/footer.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {RouterModule} from '@angular/router';
+import { ContributeComponent } from './components/contribute/contribute.component';
 
 
 @NgModule({
@@ -17,7 +19,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     AppComponent,
     HeaderComponent,
     LandingComponent,
-    FooterComponent
+    FooterComponent,
+    ContributeComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     ClarityModule,
     BrowserAnimationsModule,
     ParticlesModule,
-    FlexLayoutModule
+    FlexLayoutModule,
 
   ],
   providers: [],

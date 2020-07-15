@@ -8,8 +8,10 @@
   border-radius: 5px;
   padding: 3em;
   border: 1px solid rgba(0, 0, 0, 0) ;
-  width: 959px ;
+  width: 90% ;
   font-size: medium;
+  margin: 0 auto;
+  align-items: center;
 }
 
 iframe {
