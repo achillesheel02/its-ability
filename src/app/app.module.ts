@@ -20,7 +20,8 @@ import { ContributeComponent } from './components/contribute/contribute.componen
     HeaderComponent,
     LandingComponent,
     FooterComponent,
-    ContributeComponent
+    ContributeComponent,
+
   ],
   imports: [
     BrowserModule,
