@@ -9,6 +9,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { LandingComponent } from './components/landing/landing.component';
 import {ParticlesModule} from 'ngx-particle';
 import { FooterComponent } from './components/footer/footer.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { FooterComponent } from './components/footer/footer.component';
     AppRoutingModule,
     ClarityModule,
     BrowserAnimationsModule,
-    ParticlesModule
+    ParticlesModule,
+    FlexLayoutModule
 
   ],
   providers: [],
