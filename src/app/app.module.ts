@@ -12,6 +12,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {RouterModule} from '@angular/router';
 import { ContributeComponent } from './components/contribute/contribute.component';
+import { DemoComponent } from './components/demo/demo.component';
+import {WebcamModule} from 'ngx-webcam';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -21,6 +24,7 @@ import { ContributeComponent } from './components/contribute/contribute.componen
     LandingComponent,
     FooterComponent,
     ContributeComponent,
+    DemoComponent,
 
   ],
   imports: [
@@ -30,6 +34,8 @@ import { ContributeComponent } from './components/contribute/contribute.componen
     BrowserAnimationsModule,
     ParticlesModule,
     FlexLayoutModule,
+    WebcamModule,
+    FormsModule
 
   ],
   providers: [],

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import anime from 'animejs';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-contribute',
@@ -9,6 +10,11 @@ import anime from 'animejs';
 export class ContributeComponent implements OnInit {
 
   constructor() { }
+  signs = [
+    'a', 'b' , 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+  ];
+  activateWebcam = false;
+  uploadFile = false;
 
   ngOnInit(): void {
     function fitElementToParent(el) {
@@ -96,5 +102,24 @@ export class ContributeComponent implements OnInit {
       init();
 
     })();
+  }
+
+  chooseUploadMethod(id) {
+    if (id === 1) {
+      this.activateWebcam = true;
+      this.uploadFile = !this.activateWebcam;
+    }
+    else if (id ===2) {
+      this.uploadFile = true;
+      this.activateWebcam = !this.uploadFile;
+    }
+  }
+
+  onUpload($event: Event) {
+
+  }
+
+  onSubmit(form: NgForm) {
+
   }
 }

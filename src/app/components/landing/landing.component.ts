@@ -76,38 +76,38 @@ export class LandingComponent implements OnInit, AfterViewInit, OnDestroy {
 
       chart.data = [ {
         category: 'Module #1',
-        start: '2016-01-10',
-        end: '2016-01-13',
+        start: '2020-03-10',
+        end: '2020-03-13',
         color: colorSet.getIndex(0),
         task: 'Gathering requirements'
       }, {
         category: 'Module #1',
-        start: '2016-02-05',
-        end: '2016-04-18',
+        start: '2020-05-05',
+        end: '2020-08-18',
         color: colorSet.getIndex(0),
         task: 'Development'
       }, {
         category: 'Module #2',
-        start: '2016-01-08',
-        end: '2016-01-10',
+        start: '2020-03-08',
+        end: '2020-03-10',
         color: colorSet.getIndex(5),
         task: 'Gathering requirements'
       }, {
         category: 'Module #2',
-        start: '2016-01-12',
-        end: '2016-01-15',
+        start: '2020-03-12',
+        end: '2020-03-15',
         color: colorSet.getIndex(5),
         task: 'Producing specifications'
       }, {
         category: 'Module #2',
-        start: '2016-01-16',
-        end: '2016-02-05',
+        start: '2020-03-16',
+        end: '2020-05-05',
         color: colorSet.getIndex(5),
         task: 'Development'
       }, {
         category: 'Module #2',
-        start: '2016-02-10',
-        end: '2016-02-18',
+        start: '2020-05-10',
+        end: '2020-05-18',
         color: colorSet.getIndex(5),
         task: 'Testing and QA'
       }, {
@@ -115,44 +115,44 @@ export class LandingComponent implements OnInit, AfterViewInit, OnDestroy {
         task: ''
       }, {
         category: 'Module #3',
-        start: '2016-01-01',
-        end: '2016-01-19',
+        start: '2020-03-03',
+        end: '2020-03-19',
         color: colorSet.getIndex(9),
         task: 'Gathering requirements'
       }, {
         category: 'Module #3',
-        start: '2016-02-01',
-        end: '2016-02-10',
+        start: '2020-05-03',
+        end: '2020-05-10',
         color: colorSet.getIndex(9),
         task: 'Producing specifications'
       }, {
         category: 'Module #3',
-        start: '2016-03-10',
-        end: '2016-04-15',
+        start: '2020-07-10',
+        end: '2020-08-15',
         color: colorSet.getIndex(9),
         task: 'Development'
       }, {
         category: 'Module #3',
-        start: '2016-04-20',
-        end: '2016-04-30',
+        start: '2020-08-20',
+        end: '2020-08-30',
         color: colorSet.getIndex(9),
-        task: 'Testing and QA'
+        task: 'Deployment'
       }, {
         category: 'Module #4',
-        start: '2016-01-15',
-        end: '2016-02-12',
+        start: '2020-03-15',
+        end: '2020-05-12',
         color: colorSet.getIndex(15),
         task: 'Gathering requirements'
       }, {
         category: 'Module #4',
-        start: '2016-02-25',
-        end: '2016-03-10',
+        start: '2020-05-25',
+        end: '2020-07-10',
         color: colorSet.getIndex(15),
         task: 'Development'
       }, {
         category: 'Module #4',
-        start: '2016-03-23',
-        end: '2016-04-29',
+        start: '2020-07-23',
+        end: '2020-08-29',
         color: colorSet.getIndex(15),
         task: 'Testing and QA'
       } ];
