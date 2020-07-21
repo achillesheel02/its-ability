@@ -1,21 +1,44 @@
 
-<div class="main-container content">
+<div class=" content">
+  <h2>How Can I Contribute?</h2>
+  <p>The process involves training a model with as many samples of signs as we can. We would love the community to be part of the journey towards achieving our vision.</p>
+  <br>
+  <img style="float: right" src="https://f1pr4a.am.files.1drv.com/y4mKPJ7-1b8L05ZUfVOEC-OuK6Na1oOMw8PIq-srqNiqgXy-lrNgYogYc-QaugdaKtkKdkY9EBmguxW2lIzN5wEgY69p2Z_Ldz607sCKArFVHaA9p8aNX2pLd08XPCuYmt9zfKdNJtpBFLtvyZ7NbfmFP75WwtcMipOoSnvvRxDyTzDtyrRuf9k4dvzxe9-754mvyTcvqwFH_n8TteZysT8VQ?width=400&height=1000&cropmode=none" alt="">
+  <clr-alert [clrAlertType]="'warning'">
+    <clr-alert-item>
+        <span class="alert-text">
+            This feature is still under development.
+        </span>
+    </clr-alert-item>
+  </clr-alert>
+<div class="testing" *ngIf="dev_mode">
+  <h3>Upload a video or Use your Webcam to Sign Here</h3>
 <form class="clr-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
   <div class="clr-form-control">
     <label for="example" class="clr-control-label">Your Name</label>
     <div class="clr-control-container">
       <div class="clr-input-wrapper">
-        <input ngModel type="text" id="example" placeholder="Write your name here" class="clr-input">
+        <input ngModel name="name" type="text" id="example" required placeholder="Write your name here" class="clr-input">
         <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
       </div>
       <span class="clr-subtext">First name and second name</span>
     </div>
   </div>
   <div class="clr-form-control">
+    <label for="example" class="clr-control-label">Your Email Address</label>
+    <div class="clr-control-container">
+      <div class="clr-input-wrapper">
+        <input ngModel name="name" type="text" email placeholder="Email here (optional)" class="clr-input">
+        <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+      </div>
+      <span class="clr-subtext">To give you updates on the progress.</span>
+    </div>
+  </div>
+  <div class="clr-form-control">
     <label for="select-full" class="clr-control-label">Choose the sign you'll be signing</label>
     <div class="clr-control-container">
       <div class="clr-select-wrapper">
-        <select ngModel name="sign" id="select-full" class="clr-select">
+        <select ngModel required  name="sign" id="select-full" class="clr-select">
           <option *ngFor="let sign of signs" [value]='sign'>{{sign}}</option>
         </select>
         <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
@@ -24,27 +47,31 @@
     </div>
   </div>
   <br>
-  <br>
   <div  class="btn-group">
     <div  class="radio btn">
-      <input #webcam type="radio"  name="btn-group-demo-radios" id="btn-demo-radio-1">
+      <input  type="radio" value="webcam"  name="uploadOption" [(ngModel)]="uploadOption" id="btn-demo-radio-1">
       <label for="btn-demo-radio-1">Use Webcam</label>
     </div>
         <div class="radio btn">
-      <input #upload type="radio" name="btn-group-demo-radios" id="btn-demo-radio-2">
+      <input  type="radio" value="uploadPath" name="uploadOption" [(ngModel)]="uploadOption"  id="btn-demo-radio-2">
       <label for="btn-demo-radio-2">Upload Video (2 seconds)</label>
     </div>
-
   </div>
-    {{ webcam.value}}
-    {{upload.value}}
-  <clr-input-container >
+  <br>
+  <br>
+  <clr-input-container *ngIf="uploadOption==='uploadPath'">
     <label>Upload Path</label>
-    <input type="file" accept="video/mp4" placeholder="Upload the video here" (change)="onUpload($event)" clrInput  name="videoFile" required />
-    <clr-control-helper>Choose a two second video of you signing the sign selected above</clr-control-helper>
+    <input type="file" ngModel accept="video/mp4" [required]="uploadOption==='uploadPath'" placeholder="Upload the video here" (change)="onUpload($event)" clrInput  name="videoFile"  />
+    <clr-control-helper>Choose a two second video of you signing the sign selected above. </clr-control-helper>
   </clr-input-container>
-
-  <webcam width="100%"></webcam>
-  <button class="btn btn-primary" type="submit" >Submit</button>
+  <webcam *ngIf="uploadOption==='webcam'" [width]="500" [height]="350"></webcam>
+  <br>
+  <button *ngIf="uploadOption==='webcam'"  type="button" class="btn btn-icon" >
+    <clr-icon shape="video-camera"></clr-icon>
+  </button>
+  <br>
+  <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Submit</button>
 </form>
 </div>
+</div>
+

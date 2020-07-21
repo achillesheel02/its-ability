@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import anime from 'animejs';
+import {fadeInAnimation} from '../../_animations/fade-in';
 
 @Component({
   selector: 'app-demo',
   templateUrl: './demo.component.html',
-  styleUrls: ['./demo.component.css']
+  styleUrls: ['./demo.component.css'],
+  animations: [fadeInAnimation],
+  // tslint:disable-next-line:no-host-metadata-property
+  host: { '[@fadeInAnimation]': '' }
 })
 export class DemoComponent implements OnInit {
 

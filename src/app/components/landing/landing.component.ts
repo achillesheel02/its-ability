@@ -4,6 +4,7 @@ import * as am4charts from '@amcharts/amcharts4/charts';
 import * as am4plugins_timeline from '@amcharts/amcharts4/plugins/timeline';
 import * as am4plugins_venn from '@amcharts/amcharts4/plugins/venn';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
+import {fadeInAnimation} from '../../_animations/fade-in';
 
 /* Chart code */
 // Themes begin
@@ -14,7 +15,10 @@ am4core.useTheme(am4themes_animated);
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.css']
+  styleUrls: ['./landing.component.css'],
+  animations: [fadeInAnimation],
+  // tslint:disable-next-line:no-host-metadata-property
+  host: { '[@fadeInAnimation]': '' }
 })
 
 export class LandingComponent implements OnInit, AfterViewInit, OnDestroy {

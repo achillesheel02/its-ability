@@ -15,6 +15,7 @@ import { ContributeComponent } from './components/contribute/contribute.componen
 import { DemoComponent } from './components/demo/demo.component';
 import {WebcamModule} from 'ngx-webcam';
 import {FormsModule} from '@angular/forms';
+import { BlogComponent } from './components/blog/blog.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import {FormsModule} from '@angular/forms';
     FooterComponent,
     ContributeComponent,
     DemoComponent,
+    BlogComponent,
 
   ],
   imports: [
