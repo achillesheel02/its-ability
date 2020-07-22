@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./survey.component.css']
 })
 export class SurveyComponent implements OnInit {
+  surveySelection: any;
 
   constructor() { }
 
