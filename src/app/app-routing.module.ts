@@ -4,6 +4,7 @@ import {LandingComponent} from './components/landing/landing.component';
 import {ContributeComponent} from './components/contribute/contribute.component';
 import {DemoComponent} from './components/demo/demo.component';
 import {BlogComponent} from './components/blog/blog.component';
+import {SurveyComponent} from './components/survey/survey.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'contribute', component: ContributeComponent},
   { path: 'demo', component: DemoComponent},
   { path: 'blog', component: BlogComponent},
+  { path: 'survey', component: SurveyComponent},
 ];
 
 @NgModule({

@@ -16,6 +16,8 @@ import { DemoComponent } from './components/demo/demo.component';
 import {WebcamModule} from 'ngx-webcam';
 import {FormsModule} from '@angular/forms';
 import { BlogComponent } from './components/blog/blog.component';
+import {FileUploadModule} from 'ng2-file-upload';
+import { SurveyComponent } from './components/survey/survey.component';
 
 
 @NgModule({
@@ -27,6 +29,7 @@ import { BlogComponent } from './components/blog/blog.component';
     ContributeComponent,
     DemoComponent,
     BlogComponent,
+    SurveyComponent,
 
   ],
   imports: [
@@ -34,6 +37,7 @@ import { BlogComponent } from './components/blog/blog.component';
     AppRoutingModule,
     ClarityModule,
     BrowserAnimationsModule,
+    FileUploadModule,
     ParticlesModule,
     FlexLayoutModule,
     WebcamModule,

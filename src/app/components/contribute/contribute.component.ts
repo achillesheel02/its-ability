@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import anime from 'animejs';
 import {NgForm} from '@angular/forms';
 import {fadeInAnimation} from '../../_animations/fade-in';
+import { FileUploader } from 'ng2-file-upload';
 
 @Component({
   selector: 'app-contribute',
@@ -20,7 +21,7 @@ export class ContributeComponent implements OnInit {
   activateWebcam = false;
   uploadFile = false;
   uploadOption: any;
-  dev_mode = false;
+
 
   ngOnInit(): void {
 
