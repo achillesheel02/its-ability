@@ -1,10 +1,17 @@
 
-<div class=" content">
+<div class=" content" >
   <h2>How Can I Contribute?</h2>
   <p>The process involves training a model with as many samples of signs as we can. We would love the community to be part of the journey towards achieving our vision.</p>
   <br>
   <img src="https://f1ps4a.am.files.1drv.com/y4mGcqiqQmMw910dy2vaKnKKIvhmSDCAVvVd8gf2cMLSzCY-LjpC62dbWdgEqdS8nDsGG-bMIr2R3OK-g3p-TSxkQr-LyclGAfu5y7M6heHp02xgAoYU48jOMUGG1ZqhZtfDeVvT8_XSie7Wwc974hSkWh7HvJoHl0yE75ZVxtub7rBgLZT2_e9Nij6s4hdP6mq6GRREiWcIrSDIeMOexW44A?width=300&height=500&cropmode=none" alt="How To Sign">
-
+<clr-alert [clrAlertType]="'warning'">
+  <clr-alert-item>
+        <span class="alert-text">
+            This feature is still under development.
+        </span>
+  </clr-alert-item>
+</clr-alert>
+<div class="devmode" *ngIf="devMode">
   <h3>Upload a video or Use your Webcam to Sign Here</h3>
 <form class="clr-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
   <div class="clr-form-control">
@@ -67,4 +74,5 @@
 </form>
 </div>
 
+</div>
 

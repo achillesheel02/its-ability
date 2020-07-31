@@ -21,6 +21,7 @@ export class ContributeComponent implements OnInit {
   activateWebcam = false;
   uploadFile = false;
   uploadOption: any;
+  devMode = false;
 
 
   ngOnInit(): void {
