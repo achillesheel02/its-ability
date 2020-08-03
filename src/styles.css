@@ -16,3 +16,6 @@ main {
   position: relative;
 }
 
+.spacer {
+  flex: 1;
+}

@@ -18,6 +18,7 @@ import {FormsModule} from '@angular/forms';
 import { BlogComponent } from './components/blog/blog.component';
 import {FileUploadModule} from 'ng2-file-upload';
 import { SurveyComponent } from './components/survey/survey.component';
+import { VjsPlayerComponent} from './components/video-js/video-js.component';
 
 
 @NgModule({
@@ -30,6 +31,9 @@ import { SurveyComponent } from './components/survey/survey.component';
     DemoComponent,
     BlogComponent,
     SurveyComponent,
+
+    VjsPlayerComponent,
+
 
   ],
   imports: [
@@ -45,6 +49,6 @@ import { SurveyComponent } from './components/survey/survey.component';
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, ]
 })
 export class AppModule { }
