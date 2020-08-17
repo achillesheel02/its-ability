@@ -15,6 +15,7 @@ db.once('open', function() {
   console.log("INFO: Connected to server.")
 });
 
+const userRoutes = require('./routes/user');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -31,6 +32,8 @@ app.use((req, res, next) => {
   );
   next();
 });
+
+app.use('/api/user', userRoutes);
 
 
 module.exports = app;

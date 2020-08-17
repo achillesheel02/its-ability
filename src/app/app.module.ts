@@ -18,6 +18,7 @@ import {FormsModule} from '@angular/forms';
 import { BlogComponent } from './components/blog/blog.component';
 import {FileUploadModule} from 'ng2-file-upload';
 import { SurveyComponent } from './components/survey/survey.component';
+import {HttpClientModule} from '@angular/common/http';
 
 
 
@@ -42,6 +43,8 @@ import { SurveyComponent } from './components/survey/survey.component';
     FlexLayoutModule,
     WebcamModule,
     FormsModule,
+    HttpClientModule,
+    RouterModule
 
   ],
   providers: [],
