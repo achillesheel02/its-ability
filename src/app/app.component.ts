@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {fadeAnimation} from '../animations';
 import {fadeInAnimation} from './_animations/fade-in';
+import {AuthService} from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +11,16 @@ import {fadeInAnimation} from './_animations/fade-in';
   // tslint:disable-next-line:no-host-metadata-property
   host: { '[@fadeInAnimation]': '' }
 })
-export class AppComponent  {
+export class AppComponent implements OnInit {
 
   title = 'It\'s Ability';
-  constructor() {
+  constructor(private authService: AuthService) {
     this.loadScript('//js.hs-scripts.com/8135993.js');
   }
 
+  ngOnInit(): void {
+    this.authService.autoAuthUser();
+  }
 
   public loadScript(url: string) {
     const body =  document.body as HTMLDivElement;

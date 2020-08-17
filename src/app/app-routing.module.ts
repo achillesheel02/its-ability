@@ -5,6 +5,9 @@ import {ContributeComponent} from './components/contribute/contribute.component'
 import {DemoComponent} from './components/demo/demo.component';
 import {BlogComponent} from './components/blog/blog.component';
 import {SurveyComponent} from './components/survey/survey.component';
+import {LoginComponent} from './components/auth/login/login.component';
+import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
+import {SignUpComponent} from './components/auth/sign-up/sign-up.component';
 
 
 const routes: Routes = [
@@ -17,6 +20,9 @@ const routes: Routes = [
   { path: 'demo', component: DemoComponent},
   { path: 'blog', component: BlogComponent},
   { path: 'survey', component: SurveyComponent},
+  { path: 'login', component: LoginComponent},
+  { path: 'sign-up', component: SignUpComponent},
+  { path: '**', component: PageNotFoundComponent},
 ];
 
 @NgModule({

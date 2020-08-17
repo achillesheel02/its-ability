@@ -16,6 +16,7 @@ db.once('open', function() {
 });
 
 const userRoutes = require('./routes/user');
+const vocabularyRoutes = require('./routes/vocabulary');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -34,6 +35,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/user', userRoutes);
+app.use('/api/vocabulary', vocabularyRoutes);
 
 
 module.exports = app;

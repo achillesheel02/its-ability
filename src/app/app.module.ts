@@ -18,7 +18,11 @@ import {FormsModule} from '@angular/forms';
 import { BlogComponent } from './components/blog/blog.component';
 import {FileUploadModule} from 'ng2-file-upload';
 import { SurveyComponent } from './components/survey/survey.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import { LoginComponent } from './components/auth/login/login.component';
+import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import {AuthInterceptor} from './interceptors/auth-interceptor';
 
 
 
@@ -32,6 +36,10 @@ import {HttpClientModule} from '@angular/common/http';
     DemoComponent,
     BlogComponent,
     SurveyComponent,
+    LoginComponent,
+    SignUpComponent,
+    PageNotFoundComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -47,7 +55,9 @@ import {HttpClientModule} from '@angular/common/http';
     RouterModule
 
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

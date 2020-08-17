@@ -1,0 +1,24 @@
+<div class="main-container">
+  <div class="content-container">
+    <div fxLayout="column" fxLayoutAlign="center center" class="content">
+      <h3>Sign In Here</h3>
+      <br>
+      <br>
+      <form clrForm fxLayout="column" fxLayoutGap="3px" #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <clr-input-container>
+          <label>Email</label>
+          <input clrInput type="email" email required ngModel name="email" />
+          <clr-control-error>This field is required.</clr-control-error>
+        </clr-input-container>
+        <clr-input-container>
+          <label>Password</label>
+          <input clrInput type="password"  required ngModel name="password" />
+          <clr-control-error>This field is required.</clr-control-error>
+        </clr-input-container>
+        <br>
+        <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Login</button>
+      </form>
+    </div>
+  </div>
+</div>
+

@@ -1,51 +1,36 @@
 
 <div class=" content" >
   <h2>How Can I Contribute?</h2>
-  <p>The process involves training a model with as many samples of signs as we can. We would love the community to be part of the journey towards achieving our vision.</p>
+  <p>The process involves training a model with as many samples of signs as we can. We would love the community to be part of the journey towards achieving our vision. You will be required to <a [routerLink]="['/sign-up']" >sign up </a>/<a [routerLink]="['/login']" > sign in </a>to make contributions.</p>
   <br>
   <img src="https://f1ps4a.am.files.1drv.com/y4mGcqiqQmMw910dy2vaKnKKIvhmSDCAVvVd8gf2cMLSzCY-LjpC62dbWdgEqdS8nDsGG-bMIr2R3OK-g3p-TSxkQr-LyclGAfu5y7M6heHp02xgAoYU48jOMUGG1ZqhZtfDeVvT8_XSie7Wwc974hSkWh7HvJoHl0yE75ZVxtub7rBgLZT2_e9Nij6s4hdP6mq6GRREiWcIrSDIeMOexW44A?width=300&height=500&cropmode=none" alt="How To Sign">
-<clr-alert [clrAlertType]="'warning'">
+<clr-alert [clrAlertType]="'warning'" *ngIf="!isAuth()">
   <clr-alert-item>
         <span class="alert-text">
-            This feature is still under development.
+            <a [routerLink]="['/sign-up']" >Sign Up </a>  as a contributor or <a [routerLink]="['/login']" >Sign In </a> to make contributions.
         </span>
   </clr-alert-item>
 </clr-alert>
-<div class="devmode" *ngIf="devMode">
+<div class="devmode" *ngIf="isAuth()">
   <h3>Upload a video or Use your Webcam to Sign Here</h3>
 <form class="clr-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
-  <div class="clr-form-control">
-    <label for="example" class="clr-control-label">Your Name</label>
-    <div class="clr-control-container">
-      <div class="clr-input-wrapper">
-        <input ngModel name="name" type="text" id="example" required placeholder="Write your name here" class="clr-input">
-        <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
-      </div>
-      <span class="clr-subtext">First name and second name</span>
-    </div>
-  </div>
-  <div class="clr-form-control">
-    <label for="example" class="clr-control-label">Your Email Address</label>
-    <div class="clr-control-container">
-      <div class="clr-input-wrapper">
-        <input ngModel name="name" type="text" email placeholder="Email here (optional)" class="clr-input">
-        <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
-      </div>
-      <span class="clr-subtext">To give you updates on the progress.</span>
-    </div>
-  </div>
+  <p>You are signed in as: {{user.firstName | titlecase}} {{ user.lastName | titlecase}}. <a (click)="logout()">Sign Out</a></p>
   <div class="clr-form-control">
     <label for="select-full" class="clr-control-label">Choose the sign you'll be signing</label>
     <div class="clr-control-container">
       <div class="clr-select-wrapper">
-        <select ngModel required  name="sign" id="select-full" class="clr-select">
-          <option *ngFor="let sign of signs" [value]='sign'>{{sign}}</option>
+        <select [(ngModel)]="sign"  (change)="addGif()" required name="sign" id="select-full" class="clr-select">
+          <option  *ngFor="let sign of signs"  [value]='sign.label'>{{sign.label}}</option>
         </select>
         <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
       </div>
       <span class="clr-subtext">Select the sign you'll be signing from the list above</span>
     </div>
   </div>
+  <br>
+  <br>
+  <img class="instruction" [src]="url" alt="How to Sign" />
+  <br>
   <br>
   <div  class="btn-group">
     <div  class="radio btn">

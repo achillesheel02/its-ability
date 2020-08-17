@@ -24,8 +24,8 @@ export class AuthService {
               private router: Router) { }
 
 
-  login(id: number, password: string) {
-    const authData = {id, password};
+  login(email: string, password: string) {
+    const authData = {email, password};
     this.http.post<{token: string, id: string}>(this.url + 'api/user/login', authData)
       .subscribe(response => {
         console.log(response);
@@ -42,8 +42,6 @@ export class AuthService {
         const expirationDate = new Date(now.getTime() + 3600000);
         this.expiry = expirationDate;
         this.saveAuthData(this.token, expirationDate, this.userId);
-        // #TODO change router navigation after login
-        this.router.navigate(['dashboard']);
       }, error => {
       });
   }
@@ -65,7 +63,6 @@ export class AuthService {
         }
       );
       this.authStatusListener.next(true);
-      this.router.navigate(['dashboard']);
     }
   }
 
@@ -83,7 +80,6 @@ export class AuthService {
     this.user = null;
     this.clearAuthData();
     this.authStatusListener.next(false);
-    this.router.navigate(['login']);
   }
 
   timeConversion(millisec) {
@@ -112,7 +108,6 @@ export class AuthService {
   }
 
   getUserInfo() {
-    console.log(this.user);
     return this.user;
   }
 
