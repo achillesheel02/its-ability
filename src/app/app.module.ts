@@ -23,6 +23,7 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import {AuthInterceptor} from './interceptors/auth-interceptor';
+import { VideojsRecordComponent } from './components/videojs-record/videojs-record.component';
 
 
 
@@ -39,6 +40,7 @@ import {AuthInterceptor} from './interceptors/auth-interceptor';
     LoginComponent,
     SignUpComponent,
     PageNotFoundComponent,
+    VideojsRecordComponent,
 
   ],
   imports: [

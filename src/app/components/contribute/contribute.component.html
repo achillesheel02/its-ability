@@ -1,6 +1,22 @@
 
 <div class=" content" >
   <h2>How Can I Contribute?</h2>
+  <br>
+  <div class="alert alert-app-level alert-info" role="alert">
+    <div class="alert-items">
+      <div class="alert-item static">
+        <div class="alert-icon-wrapper">
+          <clr-icon class="alert-icon" shape="info-circle"></clr-icon>
+        </div>
+        <div class="alert-text">
+          We are continuously updating our model with new words and will update you via email if you're interested in contributing!
+        </div>
+      </div>
+    </div>
+    <button type="button" class="close" aria-label="Close">
+      <clr-icon aria-hidden="true" shape="close"></clr-icon>
+    </button>
+  </div>
   <p>The process involves training a model with as many samples of signs as we can. We would love the community to be part of the journey towards achieving our vision. You will be required to <a [routerLink]="['/sign-up']" >sign up </a>/<a [routerLink]="['/login']" > sign in </a>to make contributions.</p>
   <br>
   <img src="https://f1ps4a.am.files.1drv.com/y4mGcqiqQmMw910dy2vaKnKKIvhmSDCAVvVd8gf2cMLSzCY-LjpC62dbWdgEqdS8nDsGG-bMIr2R3OK-g3p-TSxkQr-LyclGAfu5y7M6heHp02xgAoYU48jOMUGG1ZqhZtfDeVvT8_XSie7Wwc974hSkWh7HvJoHl0yE75ZVxtub7rBgLZT2_e9Nij6s4hdP6mq6GRREiWcIrSDIeMOexW44A?width=300&height=500&cropmode=none" alt="How To Sign">
@@ -11,15 +27,16 @@
         </span>
   </clr-alert-item>
 </clr-alert>
-<div class="devmode" *ngIf="isAuth()">
-  <h3>Upload a video or Use your Webcam to Sign Here</h3>
-<form class="clr-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+<div fxLayout="column" fxLayoutAlign="center center" *ngIf="isAuth()">
+  <h3>Use your Webcam to Sign Here</h3>
+<form fxLayout="column" fxLayoutAlign="center center" class="clr-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
   <p>You are signed in as: {{user.firstName | titlecase}} {{ user.lastName | titlecase}}. <a (click)="logout()">Sign Out</a></p>
   <div class="clr-form-control">
     <label for="select-full" class="clr-control-label">Choose the sign you'll be signing</label>
     <div class="clr-control-container">
       <div class="clr-select-wrapper">
-        <select [(ngModel)]="sign"  (change)="addGif()" required name="sign" id="select-full" class="clr-select">
+        <select [(ngModel)]="sign" (click)="fileUploadSuccessful=false" (change)="addGif()" required name="sign" id="select-full" class="clr-select">
           <option  *ngFor="let sign of signs"  [value]='sign.label'>{{sign.label}}</option>
         </select>
         <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
@@ -32,30 +49,21 @@
   <img class="instruction" [src]="url" alt="How to Sign" />
   <br>
   <br>
-  <div  class="btn-group">
-    <div  class="radio btn">
-      <input  type="radio" value="webcam"  name="uploadOption" [(ngModel)]="uploadOption" id="btn-demo-radio-1">
-      <label for="btn-demo-radio-1">Use Webcam</label>
-    </div>
-        <div class="radio btn">
-      <input  type="radio" value="uploadPath" name="uploadOption" [(ngModel)]="uploadOption"  id="btn-demo-radio-2">
-      <label for="btn-demo-radio-2">Upload Video (2 seconds)</label>
+    <label>Click on the Camera Icon to activate the camera, aand then Record to start. Minimize video to ~2 seconds. You can repeat the recording as many times as you want. Click 'Submit' wheh done.</label>
+  <br>
+  <app-videojs-record (recordedVideo)="log($event)" *ngIf="startVideoFeed"></app-videojs-record>
+  <br>
+  <div *ngIf="fileUploadSuccessful" class="alert alert-success" role="alert">
+    <div class="alert-items">
+      <div class="alert-item static">
+        <div class="alert-icon-wrapper">
+          <clr-icon class="alert-icon" shape="check-circle"></clr-icon>
+        </div>
+        <span class="alert-text">Thank you. Your contribution has been submitted!</span>
+      </div>
     </div>
   </div>
-  <br>
-  <br>
-  <clr-input-container *ngIf="uploadOption==='uploadPath'">
-    <label>Upload Path</label>
-    <input type="file" ngModel accept="video/mp4" [required]="uploadOption==='uploadPath'" placeholder="Upload the video here" (change)="onUpload($event)" clrInput  name="videoFile"  />
-    <clr-control-helper>Choose a two second video of you signing the sign selected above. </clr-control-helper>
-  </clr-input-container>
-  <webcam *ngIf="uploadOption==='webcam'" [width]="500" [height]="350"></webcam>
-  <br>
-  <button *ngIf="uploadOption==='webcam'"  type="button" class="btn btn-icon" >
-    <clr-icon shape="video-camera"></clr-icon>
-  </button>
-  <br>
-  <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Submit</button>
+  <button class="btn btn-primary" type="submit" [disabled]="form.invalid || !allowFormSubmit">Submit</button>
 </form>
 </div>
 

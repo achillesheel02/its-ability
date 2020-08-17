@@ -5,6 +5,7 @@ import {fadeInAnimation} from '../../_animations/fade-in';
 import { FileUploader } from 'ng2-file-upload';
 import {AuthService} from '../../services/auth.service';
 import {SignsService} from '../../services/signs.service';
+import {UploadService} from '../../services/upload.service';
 
 @Component({
   selector: 'app-contribute',
@@ -16,7 +17,8 @@ import {SignsService} from '../../services/signs.service';
 })
 export class ContributeComponent implements OnInit {
 
-  constructor(private authService: AuthService, private signsService: SignsService) { }
+  constructor(private authService: AuthService, private signsService: SignsService,
+              private uploadService: UploadService) { }
   signs = [];
   activateWebcam = false;
   uploadFile = false;
@@ -24,6 +26,10 @@ export class ContributeComponent implements OnInit {
   user: any;
   sign = '';
   url = '';
+  startVideoFeed = false;
+  allowFormSubmit = false;
+  fileUploadSuccessful = false;
+  recordedVideo: any;
 
 
   ngOnInit(): void {
@@ -33,30 +39,20 @@ export class ContributeComponent implements OnInit {
           this.signs.push(x);
         });
       });
+    this.startVideoFeed = true;
   }
 
 
-
-  chooseUploadMethod(id) {
-    if (id === 1) {
-      this.activateWebcam = true;
-      this.uploadFile = !this.activateWebcam;
-    }
-    else if (id === 2) {
-      this.uploadFile = true;
-      this.activateWebcam = !this.uploadFile;
-    }
-  }
-
-  onUpload($event: Event) {
-
-  }
 
   isAuth() {
     this.user = this.authService.getUserInfo();
     return this.authService.isAuth();
   }
   onSubmit(form: NgForm) {
+    const prefix = form.value.sign;
+    this.uploadService.fileUpload(this.recordedVideo, prefix);
+    this.fileUploadSuccessful = true;
+    form.reset();
 
   }
 
@@ -67,5 +63,10 @@ export class ContributeComponent implements OnInit {
 
   addGif() {
     this.url = this.signs.find(x => x.label === this.sign).link;
+  }
+
+  log($event: any) {
+    this.allowFormSubmit = true;
+    this.recordedVideo = $event;
   }
 }
