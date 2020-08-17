@@ -4,6 +4,17 @@ const bodyParser = require("body-parser");
 const app = express();
 const mongoose = require('mongoose');
 
+mongoose.connect('mongodb+srv://admin:qnZTnA7rsqObJyLA@cluster0-hdooz.mongodb.net/its-ability?retryWrites=true&w=majority', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'INFO: Connection error:'));
+db.once('open', function() {
+  console.log("INFO: Connected to server.")
+});
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
