@@ -1,7 +1,6 @@
 
-<div class=" content" >
+<div  class="content-container"  fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center">
   <h2>How Can I Contribute?</h2>
-  <br>
   <div class="alert alert-app-level alert-info" role="alert">
     <div class="alert-items">
       <div class="alert-item static">
@@ -18,7 +17,7 @@
     </button>
   </div>
   <p>The process involves training a model with as many samples of signs as we can. We would love the community to be part of the journey towards achieving our vision. You will be required to <a [routerLink]="['/sign-up']" >sign up </a>/<a [routerLink]="['/login']" > sign in </a>to make contributions.</p>
-  <br>
+
   <img src="https://f1ps4a.am.files.1drv.com/y4mGcqiqQmMw910dy2vaKnKKIvhmSDCAVvVd8gf2cMLSzCY-LjpC62dbWdgEqdS8nDsGG-bMIr2R3OK-g3p-TSxkQr-LyclGAfu5y7M6heHp02xgAoYU48jOMUGG1ZqhZtfDeVvT8_XSie7Wwc974hSkWh7HvJoHl0yE75ZVxtub7rBgLZT2_e9Nij6s4hdP6mq6GRREiWcIrSDIeMOexW44A?width=300&height=500&cropmode=none" alt="How To Sign">
 <clr-alert [clrAlertType]="'warning'" *ngIf="!isAuth()">
   <clr-alert-item>
@@ -28,9 +27,9 @@
   </clr-alert-item>
 </clr-alert>
 
-<div fxLayout="column" fxLayoutAlign="center center" *ngIf="isAuth()">
+<div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center" *ngIf="isAuth()">
   <h3>Use your Webcam to Sign Here</h3>
-<form fxLayout="column" fxLayoutAlign="center center" class="clr-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+<form fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center" class="clr-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
   <p>You are signed in as: {{user.firstName | titlecase}} {{ user.lastName | titlecase}}. <a (click)="logout()">Sign Out</a></p>
   <div class="clr-form-control">
     <label for="select-full" class="clr-control-label">Choose the sign you'll be signing</label>
@@ -44,15 +43,13 @@
       <span class="clr-subtext">Select the sign you'll be signing from the list above</span>
     </div>
   </div>
-  <br>
-  <br>
+
   <img class="instruction" [src]="url" alt="How to Sign" />
-  <br>
-  <br>
-    <label>Click on the Camera Icon to activate the camera, aand then Record to start. Minimize video to ~2 seconds. You can repeat the recording as many times as you want. Click 'Submit' wheh done.</label>
-  <br>
-  <app-videojs-record (recordedVideo)="log($event)" *ngIf="startVideoFeed"></app-videojs-record>
-  <br>
+
+    <label>Click on the Camera Icon to activate the camera, aand then Record to start. Minimize video to ~2 seconds. You can repeat the recording as many times as you want. Click 'Submit' wheh done. <strong>NOTE: Recording is only compatible with Firefox, Chrome (Desktop), Opera (Mobile + Desktop), Android Web Browsers, Safari (iOS) and Microsoft Edge.</strong></label>
+
+  <app-videojs-record style="width: 100%; margin: 0 auto" (recordedVideo)="log($event)" *ngIf="startVideoFeed"></app-videojs-record>
+
   <div *ngIf="fileUploadSuccessful" class="alert alert-success" role="alert">
     <div class="alert-items">
       <div class="alert-item static">

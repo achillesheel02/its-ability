@@ -15,10 +15,11 @@ html {
 }
 
 
-main {
-  position: relative;
-}
-
 .spacer {
   flex: 1;
 }
+
+body {
+  width: 100%;
+}
+

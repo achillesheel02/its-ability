@@ -8,6 +8,7 @@ import {SurveyComponent} from './components/survey/survey.component';
 import {LoginComponent} from './components/auth/login/login.component';
 import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
 import {SignUpComponent} from './components/auth/sign-up/sign-up.component';
+import {AlphaComponent} from './components/alpha/alpha.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'survey', component: SurveyComponent},
   { path: 'login', component: LoginComponent},
   { path: 'sign-up', component: SignUpComponent},
+  { path: 'alpha', component: AlphaComponent},
   { path: '**', component: PageNotFoundComponent},
 ];
 

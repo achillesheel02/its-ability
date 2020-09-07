@@ -1,5 +1,5 @@
 <div class="main-container">
-  <div class="content-container content">
+  <div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center">
     <h2>Are You a Medical Practitioner or a Deaf/Hard-of-hearing Individual?</h2>
     <p>As we commenced this ambitious project, we made it our goal to meet the needs of our key stakeholders, <strong>medical practitioners</strong>, and the <strong>Deaf/HoH individuals.</strong>
     <br><br>As a result, we generated a questionnaire to better understand the future potential users of our system.
@@ -21,11 +21,9 @@
         <label for="btn-demo-radio-3">General Public Survey</label>
       </div>
     </div>
-    <br>
-    <br>
-    <br>
+
     <iframe *ngIf="surveySelection==='deaf'" src="https://docs.google.com/forms/d/e/1FAIpQLSeKGd7tezX6IR0YLee6aFbonRk8ePu8GbkwY60gmgzOv6snng/viewform?embedded=true" width="640" height="2858" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
     <iframe  *ngIf="surveySelection==='medical'" src="https://docs.google.com/forms/d/e/1FAIpQLSf-uliikwlvQOMHfu_jPFJUQkoMbjpLnD54sef26c7tALfJsw/viewform?embedded=true" width="640" height="3543" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
     <iframe *ngIf="surveySelection==='public'" src="https://docs.google.com/forms/d/e/1FAIpQLScvo7ETyJ_H86QqSVTfRJ0FjsFV58H2Ce6wVZ-tcz6o2grX7A/viewform?embedded=true" width="640" height="2271" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-  </div>
+</div>
 </div>

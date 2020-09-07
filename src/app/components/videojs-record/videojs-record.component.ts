@@ -21,6 +21,8 @@ import * as Wavesurfer from 'videojs-wavesurfer/dist/videojs.wavesurfer.js';
 
 // register videojs-record plugin with this import
 import * as Record from 'videojs-record/dist/videojs.record.js';
+import '@mattiasbuelens/web-streams-polyfill/dist/polyfill.min.js';
+import TsEBMLEngine from 'videojs-record/dist/plugins/videojs.record.ts-ebml.js';
 
 @Component({
   selector: 'app-videojs-record',
@@ -31,12 +33,12 @@ export class VideojsRecordComponent implements OnInit, OnDestroy, AfterViewInit 
 
   @Output() recordedVideo: EventEmitter<any> = new EventEmitter<any>();
   // reference to the element itself: used to access events and methods
-  private _elementRef: ElementRef
+  private _elementRef: ElementRef;
 
 
   // index to create unique ID for component
   idx = 'clip1';
-
+private tbesmPlugin: any;
   private config: any;
   private player: any;
   private plugin: any;
@@ -47,50 +49,32 @@ export class VideojsRecordComponent implements OnInit, OnDestroy, AfterViewInit 
 
     // save reference to plugin (so it initializes)
     this.plugin = Record;
+    this.tbesmPlugin = TsEBMLEngine;
+
 
     // video.js configuration
     this.config = {
       controls: true,
       autoplay: false,
-      fluid: false,
+      fluid: true,
       loop: false,
       width: 640,
       height: 480,
-      bigPlayButton: false,
+      bigPlayButton: true,
       controlBar: {
-        volumePanel: false
+        volumePanel: false,
+        pictureInPictureToggle: false,
       },
       plugins: {
-        /*
-        // wavesurfer section is only needed when recording audio-only
-        wavesurfer: {
-            backend: 'WebAudio',
-            waveColor: '#36393b',
-            progressColor: 'black',
-            debug: true,
-            cursorWidth: 1,
-            displayMilliseconds: true,
-            hideScrollbar: true,
-            plugins: [
-                // enable microphone plugin
-                WaveSurfer.microphone.create({
-                    bufferSize: 4096,
-                    numberOfInputChannels: 1,
-                    numberOfOutputChannels: 1,
-                    constraints: {
-                        video: false,
-                        audio: true
-                    }
-                })
-            ]
-        },
-        */
         // configure videojs-record plugin
         record: {
           audio: false,
           video: true,
           debug: true,
-          maxLength: 3,
+          maxLength: 10,
+          displayMilliseconds: true,
+          convertEngine: 'ts-ebml',
+          videoMimeType: 'video/webm;codecs=H264'
         }
       }
     };

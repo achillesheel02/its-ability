@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import anime from 'animejs';
 import {fadeInAnimation} from '../../_animations/fade-in';
 
@@ -10,16 +10,22 @@ import {fadeInAnimation} from '../../_animations/fade-in';
   // tslint:disable-next-line:no-host-metadata-property
   host: { '[@fadeInAnimation]': '' }
 })
-export class DemoComponent implements OnInit {
+export class DemoComponent implements OnInit, AfterViewInit {
+  opened = false;
 
-  constructor() { }
-
-  ngOnInit(): void {
-    this.loadScript('https://static.proto.io/api/widget-embed.js');
+  constructor() {
   }
 
-  public loadScript(url: string) {
-    const body =  document.body as HTMLDivElement;
+  ngOnInit(): void {
+    this.loadProtoScript('https://static.proto.io/api/widget-embed.js');
+
+  }
+
+  ngAfterViewInit() {
+
+  }
+
+  public loadProtoScript(url: string) {
     const script = document.createElement('script');
     script.innerHTML = '';
     script.src = url;
@@ -28,6 +34,8 @@ export class DemoComponent implements OnInit {
     script.type = 'text/javascript';
     document.getElementsByClassName('script')[0].appendChild(script);
   }
+
+
 
 
 }

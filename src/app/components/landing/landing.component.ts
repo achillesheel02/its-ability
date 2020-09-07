@@ -34,6 +34,7 @@ export class LandingComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   ngOnInit(): void {
+    this.loadProtoScript('https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js');
     this.myStyle = {
       position: 'fixed',
       width: '100%',
@@ -285,5 +286,12 @@ export class LandingComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
+  public loadProtoScript(url: string) {
+    const script = document.createElement('script');
+    script.innerHTML = '';
+    script.src = url;
+    script.type = 'text/javascript';
+    document.getElementsByClassName('script')[0].appendChild(script);
+  }
 
 }

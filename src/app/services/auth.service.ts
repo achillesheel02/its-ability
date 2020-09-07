@@ -38,6 +38,7 @@ export class AuthService {
         );
         this.isAuthenticated = true;
         this.authStatusListener.next(true);
+        this.router.navigate(['contribute']);
         const now = new Date();
         const expirationDate = new Date(now.getTime() + 3600000);
         this.expiry = expirationDate;

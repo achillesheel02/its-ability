@@ -5,9 +5,6 @@ app-footer {
   text-align: center;
 
 }
-
-app-header {
-  position: fixed;
-  top: 0;
-  right: 0;
+router-outlet {
+  width: 100%
 }
