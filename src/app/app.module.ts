@@ -25,6 +25,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import {AuthInterceptor} from './interceptors/auth-interceptor';
 import { VideojsRecordComponent } from './components/videojs-record/videojs-record.component';
 import { AlphaComponent } from './components/alpha/alpha.component';
+import { PricingComponent } from './components/pricing/pricing.component';
 
 
 
@@ -43,6 +44,7 @@ import { AlphaComponent } from './components/alpha/alpha.component';
     PageNotFoundComponent,
     VideojsRecordComponent,
     AlphaComponent,
+    PricingComponent,
 
   ],
   imports: [
